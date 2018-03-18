@@ -10,9 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lumo-cljs": "^1.8.0"
+    "lumo-cljs": "^1.8.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   },
   "devDependencies": {
+    "@cljs-oss/module-deps": "^1.1.1",
     "serve": "^6.5.3"
   }
 }

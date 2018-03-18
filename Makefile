@@ -9,11 +9,12 @@ serve:
 install:
 	yarn
 
-build:public/js/main.js
-
-public/js/main.js:
+build:src/*
 	yarn lumo -i ./scripts/build.cljs
 
 clean:
 	rm -rf public/out
 	rm public/js/main.js
+
+repl:
+	yarn lumo -r
