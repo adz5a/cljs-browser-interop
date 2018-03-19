@@ -9,12 +9,15 @@ serve:
 install:
 	yarn
 
-build:src/*
-	yarn lumo -i ./scripts/build.cljs
+lumo-compile:src/*
+	yarn lumo -i ./build-lumo.cljs
+
+java-compile:src/*
+	java -cp cljs.jar:src clojure.main ./scripts/build.cljs
 
 clean:
 	rm -rf public/out
-	rm public/js/main.js
+	rm -rf public/js
 
 repl:
 	yarn lumo -r
