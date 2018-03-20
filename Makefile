@@ -15,6 +15,9 @@ lumo-compile:src/*
 java-compile:src/*
 	java -cp cljs.jar:src clojure.main ./scripts/build.cljs
 
+boot-compile:src/*
+	boot cljs target
+
 clean:
 	rm -rf public/out
 	rm -rf public/js
