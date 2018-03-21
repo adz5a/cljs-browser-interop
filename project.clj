@@ -54,10 +54,25 @@
                 :source-paths ["src"]
                 :compiler {:output-to "resources/public/js/compiled/app.js"
                            :main app.core
-                           :npm-deps {:react "^16.2.0"
-                                      :react-dom "^16.0.2"}
                            :optimizations :advanced
-                           :pretty-print false}}]}
+                           :pretty-print false
+                           :foreign-libs [{:provides ["cljsjs.react.dom"]
+                                           :global-exports {cljsjs.react.dom ReactDOM}
+                                           :file "local_deps/react_dom.dev.js"}
+                                          {:provides ["cljsjs.react"]
+                                           :global-exports {cljsjs.react React}
+                                           :file "local_deps/react.development.js"}]}}
+               ;; builds a node js application with "simple" optimizations
+               ;; the use of "simple" is because in :none all namespaces are
+               ;; loaded
+               {:id "nodejs"
+                :source-paths ["src"]
+                :compiler {:output-to "resources/server/server.js"
+                           :output-dir "resources/server/out"
+                           :target :nodejs
+                           :optimizations :simple
+                           :main server.core
+                           :pretty-print true}}]}
 
   :figwheel {;; :http-server-root "public" ;; default and assumes "resources"
              ;; :server-port 3449 ;; default
