@@ -15,5 +15,8 @@ public/js/main.js:
 	yarn lumo -i ./scripts/build.cljs
 
 clean:
-	rm -rf public/out
-	rm public/js/main.js
+	rm -rf node_modules
+	lein clean
+
+run-dev:
+	lein figwheel
