@@ -16,5 +16,19 @@ clean:
 	rm -rf public/out
 	rm -rf public/js
 
+install-clojure:
+	curl -O https://download.clojure.org/install/linux-install-1.9.0.358.sh &&\
+	chmod +x linux-install-1.9.0.358.sh &&\
+	sudo ./linux-install-1.9.0.358.sh
+
 repl:
-	yarn lumo -r
+	clj
+
+repl-cljs:
+	clj -m cljs.main
+
+repl-node:
+	clj -m cljs.main -re node
+
+run-app-watch:
+	clj -m cljs.main -w src -c app.core -r
